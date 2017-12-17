@@ -2,139 +2,176 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-app.get('/api/pins', (req, res) => {
-  const pins = [
-    {
-      id: '0',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '1',
-      img: 'http://www.newportharborvets.com/sites/default/files/08-cat-cancer-4.jpeg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '2',
-      img: 'https://www.aspca.org/sites/default/files/team-aspca-birthday-campaign-ad_090516_cat.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '3',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '4',
-      img: 'http://www.newportharborvets.com/sites/default/files/08-cat-cancer-4.jpeg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '5',
-      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2015-03/3/16/enhanced/webdr10/enhanced-19898-1425418851-9.jpg?downsize=715:*&output-format=auto&output-quality=auto',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '6',
-      img: 'https://www.aspca.org/sites/default/files/team-aspca-birthday-campaign-ad_090516_cat.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '7',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '8',
-      img: 'http://www.newportharborvets.com/sites/default/files/08-cat-cancer-4.jpeg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '9',
-      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2015-03/3/16/enhanced/webdr10/enhanced-19898-1425418851-9.jpg?downsize=715:*&output-format=auto&output-quality=auto',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '10',
-      img: 'https://www.aspca.org/sites/default/files/team-aspca-birthday-campaign-ad_090516_cat.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '11',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '12',
-      img: 'http://www.newportharborvets.com/sites/default/files/08-cat-cancer-4.jpeg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '13',
-      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2015-03/3/16/enhanced/webdr10/enhanced-19898-1425418851-9.jpg?downsize=715:*&output-format=auto&output-quality=auto',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '14',
-      img: 'https://www.aspca.org/sites/default/files/team-aspca-birthday-campaign-ad_090516_cat.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '15',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '16',
-      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2015-03/3/16/enhanced/webdr10/enhanced-19898-1425418851-9.jpg?downsize=715:*&output-format=auto&output-quality=auto',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '17',
-      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2015-03/3/16/enhanced/webdr10/enhanced-19898-1425418851-9.jpg?downsize=715:*&output-format=auto&output-quality=auto',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    },
-    {
-      id: '18',
-      img: 'https://www.aspca.org/sites/default/files/team-aspca-birthday-campaign-ad_090516_cat.jpg',
-      author: 'Ethan Hein',
-      description: 'Lorem Ipsum'
-    }
-  ];
+// device info
+const DEVICE_INFO = {
+  manufacturer: 'DYSON',
+  serialNumber: '123',
+  date: '01-01-2017',
+  model: 'xyz'
+};
 
-  const limit = +req.query.limit || 10;
-  const offset = +req.query.offset || 0;
-
-  if(offset >= pins.length) {
-    res.json({
-      pins: [],
-      pinsLeft: 0
-    });
-  } else {
-    const pinsLeft = pins.length  - offset - limit;
-    res.json({
-      pins: pins.slice(offset, offset + limit),
-      pinsLeft: pinsLeft < 0 ? 0 : pinsLeft
-    });
+// device mock data - power consumption, work sessions,
+const DEVICE_MOCK_DATA = [
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
+  },
+  {
+    timeOn: 687944,
+    energy: 14443276,
+    start: "2015-02-04T03:37:51.566Z",
+    end: "2015-02-11T23:41:06.554Z",
+    date: "2017-01-27",
+    id: "Y8StKV6nStaXaguxnmNKtg"
   }
+];
+
+const MODES = {
+  DRY: 'dry',
+  WASHING: 'washing'
+};
+
+// vacuum cleaner low level api mock
+class VacuumCleaner {
+  constructor() {
+    this.state = {
+      isOn: false,
+      mode: MODES.DRY,
+      power: 0,
+      deviceInfo: DEVICE_INFO,
+      statistics: DEVICE_MOCK_DATA
+    }
+  }
+  getOnOffState() {
+    return this.state.isOn;
+  }
+  turnOnOff() {
+    this.state.isOn = !this.state.isOn;
+  }
+  getMode() {
+    return this.state.mode;
+  }
+  setMode(newMode) {
+    if(newMode !== MODES.DRY || newMode !== MODES.WASHING) {
+      throw 'wrong mode argument';
+    }
+    this.state.mode = newMode;
+  }
+  charge() {
+    this.state.power = 100;
+  }
+  getPower() {
+    return this.state.power
+  }
+  getDeviceInfo() {
+    return this.state.deviceInfo;
+  }
+  getStatistics() {
+    return this.state.statistics;
+  }
+}
+
+// vacuum cleaner generator(as a singleton)
+const Singleton = (function () {
+  let instance;
+
+  function createInstance() {
+    return new VacuumCleaner();
+  }
+
+  return {
+    getInstance: function () {
+      if (!instance) {
+        instance = createInstance();
+      }
+      return instance;
+    }
+  };
+})();
+
+const cleaner = Singleton.getInstance();
+
+const BASE_URL = `/api/${DEVICE_INFO.serialNumber}`;
+
+app.get(BASE_URL + '', (req, res) => {
+  var t = cleaner.state.isOn;
+  console.log(t)
 });
 
 if(process.env.NODE_ENV === 'production') {

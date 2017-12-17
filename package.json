@@ -6,11 +6,16 @@
   "scripts": {
     "lint": "eslint src/ --config=.eslintrc",
     "clean": "rm -rf dist",
-    "build": "npm run clean && webpack",
-    "prod": "NODE_ENV=production npm run build -p",
-    "frontend-dev": "webpack-dev-server",
-    "backend-dev": "nodemon server.js",
-    "deploy-heroku": "git push heroku master"
+    "build-frontend": "npm run clean && webpack",
+    "prod": "NODE_ENV=production npm run build-frontend -p build-backend",
+    "deploy-heroku": "git push heroku master",
+
+
+    "babel-node": "babel-node",
+    "backend-dev": "nodemon --exec npm run babel-node -- server.js",
+    "build-backend": "babel src -d dist",
+
+    "frontend-dev": "webpack-dev-server"
   },
   "pre-commit": "lint",
   "repository": {
@@ -29,6 +34,7 @@
   },
   "homepage": "https://github.com/kurumkan/vacuum-cleaner-api#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
