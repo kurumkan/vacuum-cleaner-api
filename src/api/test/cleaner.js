@@ -1,23 +1,24 @@
-//During the test the env variable is set to test
+// During the test the env variable is set to test
 process.env.NODE_ENV = 'test';
 
 import cleaner from '../instance';
 import { PORT } from '../server';
 
-//Require the dev-dependencies
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../server.js');
+// Require the dev-dependencies
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+
 let should = chai.should();
 chai.use(chaiHttp);
 
-//Our parent block
+// Our parent block
 describe('Vacuum Cleaner', () => {
   // reset the model to the initial state
   beforeEach((done) => {
     cleaner.reset();
     done();
   });
+
   /*
    * Test the /GET route
    */
@@ -37,6 +38,7 @@ describe('Vacuum Cleaner', () => {
         });
     });
   });
+
   /*
    * Test the /GET 'onoff' route
    */
@@ -53,6 +55,7 @@ describe('Vacuum Cleaner', () => {
         });
     });
   });
+
   /*
    * Test the /PUT 'onoff' route
    */
@@ -86,6 +89,7 @@ describe('Vacuum Cleaner', () => {
         });
     });
   });
+
   /*
    * Test the /PUT 'onoff' route
    */
@@ -130,6 +134,7 @@ describe('Vacuum Cleaner', () => {
         });
     });
   });
+
   /*
    * Test the /PUT 'power' route
    */
@@ -146,6 +151,7 @@ describe('Vacuum Cleaner', () => {
         });
     });
   });
+
   /*
    * Test the /GET 'stats' route
    */

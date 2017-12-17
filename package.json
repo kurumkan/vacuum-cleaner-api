@@ -6,14 +6,15 @@
   "scripts": {
     "lint": "eslint src/ --config=.eslintrc",
     "clean": "rm -rf dist",
+    "frontend-dev": "webpack-dev-server",
     "build-frontend": "npm run clean && webpack",
     "prod": "NODE_ENV=production npm run build-frontend -p build-backend",
-    "deploy-heroku": "git push heroku master",
-    "babel-node": "babel-node",
+
     "backend-dev": "nodemon --exec npm run babel-node -- src/api/server.js",
-    "build-backend": "babel src -d dist",
-    "frontend-dev": "webpack-dev-server",
-    "test-backend": "mocha --compilers js:babel-core/register src/api/test --timeout 10000"
+    "build-backend": "babel src/api/server.js -d dist",
+    "test-backend": "mocha --compilers js:babel-core/register src/api/test --timeout 10000",
+
+    "deploy-heroku": "git push heroku master"
   },
   "pre-commit": "lint",
   "repository": {
