@@ -8,12 +8,12 @@
     "clean": "rm -rf dist",
     "frontend-dev": "webpack-dev-server",
     "build-frontend": "npm run clean && webpack",
-    "prod": "NODE_ENV=production npm run build-frontend -p build-backend",
 
-    "backend-dev": "nodemon --exec npm run babel-node -- src/api/server.js",
-    "build-backend": "babel src/api/server.js -d dist",
+    "backend-dev": "nodemon --exec babel-node -- src/api/server.js",
+    "build-backend": "babel src/api --ignore test -d dist",
     "test-backend": "mocha --compilers js:babel-core/register src/api/test --timeout 10000",
 
+    "prod": "NODE_ENV=production npm run build-frontend -p && npm run build-backend",
     "deploy-heroku": "git push heroku master"
   },
   "pre-commit": "lint",
