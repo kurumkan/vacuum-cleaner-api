@@ -10,7 +10,7 @@
     "prod": "NODE_ENV=production npm run build-frontend -p build-backend",
     "deploy-heroku": "git push heroku master",
     "babel-node": "babel-node",
-    "backend-dev": "nodemon --exec npm run babel-node -- server.js",
+    "backend-dev": "nodemon --exec npm run babel-node -- src/api/server.js",
     "build-backend": "babel src -d dist",
     "frontend-dev": "webpack-dev-server"
   },

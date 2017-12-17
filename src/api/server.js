@@ -224,8 +224,6 @@ app.get(BASE_URL + 'stats', (req, res) => {
 });
 
 
-
-
 if(process.env.NODE_ENV === 'production') {
   // production
   // get all static data from 'dist' directory
