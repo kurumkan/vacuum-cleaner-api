@@ -12,7 +12,8 @@
     "babel-node": "babel-node",
     "backend-dev": "nodemon --exec npm run babel-node -- src/api/server.js",
     "build-backend": "babel src -d dist",
-    "frontend-dev": "webpack-dev-server"
+    "frontend-dev": "webpack-dev-server",
+    "test-backend": "mocha --compilers js:babel-core/register src/api/test --timeout 10000"
   },
   "pre-commit": "lint",
   "repository": {
@@ -37,6 +38,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
@@ -47,6 +50,7 @@
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.4.2",
+    "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
