@@ -1,0 +1,8 @@
+export const SHOW_PIN_POPUP = 'SHOW_PIN_POPUP';
+export const HIDE_PIN_POPUP = 'HIDE_PIN_POPUP';
+export const GET_PINS_REQUEST = 'GET_PINS_REQUEST';
+export const GET_PINS_SUCCESS = 'GET_PINS_SUCCESS';
+export const GET_PINS_FAILURE = 'GET_PINS_FAILURE';
+
+export const SHOW_ERROR = 'SHOW_ERROR';
+export const HIDE_ERROR = 'HIDE_ERROR';

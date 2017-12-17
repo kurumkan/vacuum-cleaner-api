@@ -1,0 +1,95 @@
+span.tooltip {
+    display: none;
+    position: absolute;
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
+
+    z-index: 1000;
+    padding: 10px;
+    color: #555;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
+}
+
+span.tooltip:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+}
+
+span.tooltip.open{
+    display: inline-block;
+}
+
+/* Tooltip positioning */
+span.tooltip.north {
+    bottom: calc(var(--target-height) + var(--arrow-height));
+    left: 0px;
+}
+span.tooltip.north:after {
+    border-color: #FFFFFF transparent transparent transparent;
+    bottom: calc(0px - var(--arrow-height) - 10px);
+    left: calc(var(--target-width) / 2 - var(--arrow-height));
+}
+
+span.tooltip.south {
+    top: calc(var(--target-height) + var(--arrow-height));
+    left: 0px;
+}
+
+span.tooltip.south:after {
+    border-color: transparent transparent #FFFFFF transparent;
+    top: calc(0px - var(--arrow-height) - 10px);
+    left: calc(var(--target-width) / 2 - var(--arrow-height));
+}
+
+span.tooltip.east {
+    left: calc(var(--target-width) + var(--arrow-height));
+}
+span.tooltip.east:after {
+    border-color: transparent #FFFFFF transparent transparent;
+    left: calc(0px - var(--arrow-height) - 10px);
+}
+
+span.tooltip.west {
+    right: calc(var(--target-width) + var(--arrow-height));
+}
+span.tooltip.west:after {
+    border-color: transparent transparent transparent #FFFFFF;
+    right: calc(0px - var(--arrow-height) - 10px);
+}
+
+span.tooltip.arrow-top {
+    top: 0px;
+}
+
+span.tooltip.arrow-top:after {
+    top: calc(var(--target-height) / 2 - var(--arrow-height));
+}
+
+span.tooltip.arrow-bottom {
+    bottom:  0;
+}
+
+span.tooltip.arrow-bottom:after {
+    bottom: calc(var(--target-height) / 2 - var(--arrow-height));
+}
+
+
+.tooltip .title {
+    font-size: 18px;
+}
+
+.tooltip .button-group {
+    margin-top: 10px;
+}
+
+.tooltip.open {
+    visibility: visible;
+}

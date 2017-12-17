@@ -1,0 +1,106 @@
+.grid-item {
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    background-color: #eee;
+}
+
+.grid-item.focused .btn,
+.grid-item:hover .btn{
+    visibility: visible;
+}
+
+.grid-item img {
+    border-radius: 10px;
+    transform: translate(15px, 10px);
+    display: block;
+    width: 230px;
+}
+
+.grid-item .img-description {
+    transform: translate(15px, -2px);
+}
+
+.img-description .author {
+    display: block;
+    font-weight: 700;
+    margin-top: 3px;
+    text-decoration: none;
+    color: #333;
+}
+
+.grid-item .btn {
+    position: absolute;
+    top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.grid-item .share-btn {
+    left: 25px;
+    background-color: #C0C0C0;
+    padding: 13px;
+}
+
+.grid-item .btn.visible {
+    visibility: visible;
+}
+
+.grid-item .share-btn:hover {
+    background-color: #949292;
+}
+
+.grid-item .save-btn {
+    right: 25px;
+    color: #fff;
+    background-color: #9B0012;
+}
+
+.grid-item .save-btn:hover {
+    right: 25px;
+    background-color: #73000D;
+}
+
+.grid-item .save-btn .icon {
+    margin-right: 10px;
+}
+
+.social-btn{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+    margin: 5px;
+}
+
+.social-btn.fa-facebook {
+    background-color: #3c5d96;
+}
+
+.social-btn.fa-twitter {
+    background-color: #4ac2fb;
+}
+
+.social-btn.fa-link {
+    background-color: #efefef;
+    color: #ababab;
+}
+
+.grid-item .detailed-pin {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-item .detailed-pin img{
+    width: auto;
+    transform: translate(0, 0);
+}
