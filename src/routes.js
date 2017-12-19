@@ -1,7 +1,6 @@
 import Main from 'components/Main';
-import ImageGridContainer from 'containers/ImageGridContainer';
-import Profile from 'components/Profile/index';
-import NotFound from 'components/NotFound/index';
+import Dashboard from 'components/Dashboard';
+import NotFound from 'components/NotFound';
 
 const createRoutes = (store) => {
   const routes = [
@@ -10,17 +9,13 @@ const createRoutes = (store) => {
       component: Main,
       indexRoute: {
         onEnter: (nextState, replace) => replace({
-          pathname: 'pins'
+          pathname: 'dashboard'
         })
       },
       childRoutes: [
         {
-          path: 'pins',
-          component: ImageGridContainer,
-        },
-        {
-          path: 'profile',
-          component: Profile
+          path: 'dashboard',
+          component: Dashboard,
         },
         {
           path: '*',
