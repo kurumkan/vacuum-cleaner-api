@@ -62,7 +62,7 @@ if(process.env.NODE_ENV === 'production') {
   // SPA specific code!!!
   // any get requests will be served with index.template.ejs files
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
   });
 } else {
   // alert user - to use webpack dev server

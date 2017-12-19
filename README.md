@@ -9,7 +9,7 @@ npm install
 ```
 npm run prod
 
-NODE_ENV=production node server.js
+npm run server
 ```
 to launch the frontend open the browser on
 ```

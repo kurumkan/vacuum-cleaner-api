@@ -14,6 +14,7 @@
     "test-backend": "mocha --compilers js:babel-core/register src/api/test --timeout 10000",
 
     "prod": "NODE_ENV=production npm run build-frontend -p && npm run build-backend",
+    "server": "NODE_ENV=production node dist/server.js",
     "deploy-heroku": "git push heroku master"
   },
   "pre-commit": "lint",
