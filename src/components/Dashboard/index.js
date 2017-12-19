@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 
+import Toggle from 'components/Toggle';
 import Loader from 'components/Loader';
 import './Dashbaord.css';
+
+import { getCurrentState } from 'actions/dashboard';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    this.props.getCurrentState();
+  }
+
   render() {
     const {
       isOn,
       mode,
       power,
-      deviceInfo,
+      deviceInfo
     } = this.props;
 
     if(!deviceInfo) {
@@ -21,7 +30,13 @@ class Dashboard extends Component {
     }
     return (
       <div className="dashboard-block">
-
+        <Toggle
+          onChange={(t)=> console.log(t)}
+          options={{
+            checked: 'on',
+            unchecked: 'off'
+          }}
+        />
       </div>
     );
   }
@@ -46,4 +61,15 @@ Dashboard.defaultProps = {
   deviceInfo: null
 };
 
-export default Dashboard;
+const select = state =>({
+  isOn: state.dashboard.isOn,
+  mode:  state.dashboard.mode,
+  power:  state.dashboard.power,
+  deviceInfo: state.dashboard.deviceInfo
+});
+
+const actions = {
+  getCurrentState
+};
+
+export default connect( select, actions )( Dashboard );

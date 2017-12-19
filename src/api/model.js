@@ -106,7 +106,7 @@ const MODES = {
 const INIT_STATE = {
   isOn: false,
   mode: MODES.DRY,
-  power: 0,
+  power: Math.floor((Math.random() * 100) + 1),
   deviceInfo: DEVICE_INFO,
   statistics: DEVICE_MOCK_DATA
 };
