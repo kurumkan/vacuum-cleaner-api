@@ -25,4 +25,3 @@ You can easily invoke the api via Postman
 
 
 ---
-<a href="kurumkan-electrolux.herokuapp.com">Demo</a> on heroku
