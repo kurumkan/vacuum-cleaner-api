@@ -20,6 +20,8 @@ run tests
 npm run test-backend
 ```
 
+You can easily invoke the api via Postman
+
 
 
 ---
