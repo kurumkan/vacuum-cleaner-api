@@ -8,11 +8,9 @@
     "clean": "rm -rf dist",
     "frontend-dev": "webpack-dev-server",
     "build-frontend": "npm run clean && webpack",
-
     "backend-dev": "nodemon --exec babel-node -- src/api/server.js",
     "build-backend": "babel src/api --ignore test -d dist",
     "test-backend": "mocha --compilers js:babel-core/register src/api/test --timeout 10000",
-
     "prod": "NODE_ENV=production npm run build-frontend -p && npm run build-backend",
     "server": "NODE_ENV=production node dist/server.js",
     "deploy-heroku": "git push heroku master"
@@ -72,6 +70,7 @@
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
     "react-router-scroll": "^0.4.3",
+    "recharts": "^1.0.0-beta.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   }

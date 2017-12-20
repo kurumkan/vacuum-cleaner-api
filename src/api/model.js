@@ -9,91 +9,43 @@ const DEVICE_INFO = {
 // device mock data - power consumption, work sessions,
 const DEVICE_MOCK_DATA = [
   {
-    timeOn: 687944,
+    timeOn: 700011,
     energy: 14443276,
     start: "2015-02-04T03:37:51.566Z",
     end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
+    date: "2017-01-21",
     id: "Y8StKV6nStaXaguxnmNKtg"
   },
   {
     timeOn: 687944,
-    energy: 14443276,
+    energy: 11443276,
     start: "2015-02-04T03:37:51.566Z",
     end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
+    date: "2017-01-22",
     id: "Y8StKV6nStaXaguxnmNKtg"
   },
   {
-    timeOn: 687944,
-    energy: 14443276,
+    timeOn: 881234,
+    energy: 4443276,
     start: "2015-02-04T03:37:51.566Z",
     end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
+    date: "2017-01-23",
     id: "Y8StKV6nStaXaguxnmNKtg"
   },
   {
-    timeOn: 687944,
-    energy: 14443276,
+    timeOn: 762811,
+    energy: 54443276,
     start: "2015-02-04T03:37:51.566Z",
     end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
+    date: "2017-01-24",
     id: "Y8StKV6nStaXaguxnmNKtg"
   },
   {
-    timeOn: 687944,
-    energy: 14443276,
+    timeOn: 162811,
+    energy: 4443276,
     start: "2015-02-04T03:37:51.566Z",
     end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
-    id: "Y8StKV6nStaXaguxnmNKtg"
-  },
-  {
-    timeOn: 687944,
-    energy: 14443276,
-    start: "2015-02-04T03:37:51.566Z",
-    end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
-    id: "Y8StKV6nStaXaguxnmNKtg"
-  },
-  {
-    timeOn: 687944,
-    energy: 14443276,
-    start: "2015-02-04T03:37:51.566Z",
-    end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
-    id: "Y8StKV6nStaXaguxnmNKtg"
-  },
-  {
-    timeOn: 687944,
-    energy: 14443276,
-    start: "2015-02-04T03:37:51.566Z",
-    end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
-    id: "Y8StKV6nStaXaguxnmNKtg"
-  },
-  {
-    timeOn: 687944,
-    energy: 14443276,
-    start: "2015-02-04T03:37:51.566Z",
-    end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
-    id: "Y8StKV6nStaXaguxnmNKtg"
-  },
-  {
-    timeOn: 687944,
-    energy: 14443276,
-    start: "2015-02-04T03:37:51.566Z",
-    end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
-    id: "Y8StKV6nStaXaguxnmNKtg"
-  },
-  {
-    timeOn: 687944,
-    energy: 14443276,
-    start: "2015-02-04T03:37:51.566Z",
-    end: "2015-02-11T23:41:06.554Z",
-    date: "2017-01-27",
+    date: "2017-01-25",
     id: "Y8StKV6nStaXaguxnmNKtg"
   }
 ];
@@ -106,7 +58,7 @@ const MODES = {
 const INIT_STATE = {
   isOn: false,
   mode: MODES.DRY,
-  power: Math.floor((Math.random() * 100) + 1),
+  power: Math.floor(Math.random() * (100 - 30 + 1) + 30),
   deviceInfo: DEVICE_INFO,
   statistics: DEVICE_MOCK_DATA
 };

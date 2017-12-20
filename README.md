@@ -15,5 +15,12 @@ to launch the frontend open the browser on
 ```
 localhost:5000
 ```
+run tests
+```
+npm run test-backend
+```
+
+
+
 ---
 <a href="kurumkan-electrolux.herokuapp.com">Demo</a> on heroku
